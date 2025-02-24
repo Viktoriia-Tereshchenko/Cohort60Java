@@ -15,7 +15,7 @@ public class SergeyTask2 {
 
         System.out.println("\n========== testArray = null / length = 0 =======\n");
         strings = null;
-        strings = new String[0];
+        //strings = new String[0];
         result = gerArrayWithSmallestStrings(strings);
         System.out.println(Arrays.toString(result));
 

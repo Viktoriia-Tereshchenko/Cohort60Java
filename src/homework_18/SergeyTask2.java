@@ -61,6 +61,8 @@ public class SergeyTask2 {
             // классический способ избавиться от ошибки с NULL !!!
             // если элемент массива null
 
+            // если элемент null, то strings[i] != null -> false и && дальше не смотрит -> этот if не выполняется!
+
             if (strings[i] != null && strings[i].length() < smallest.length()) {
                 smallest = strings[i];
             }

@@ -2,35 +2,26 @@ package homework_22;
 
 import java.util.Arrays;
 
-public class MagicArray {
+public class MagicArrayEncaps {
     int[] array; // null
     int cursor; // по умолчанию = 0 (по типу данных)
 
     // Методы, расширяющие функционал массива
 
-    public MagicArray() {
+    public MagicArrayEncaps() {
         this.array = new int[10]; // [0, 0 ... 0]
     }
 
-    // Конструктор, принимающий обычный массив.
-    // Создает магический массив с элементами из этого массива
-    public MagicArray(int[] array) {
-        // у Сергея оптимизировано!
+    public MagicArrayEncaps(int[] array) {
 
         if (array == null || array.length == 0) {
-            // или нужно все-таки создать массив с нулями ?
-            // this.array = new int[10];
-            return;
+            this.array = new int[10];
+        } else {
+            this.array = new int[array.length * 2];
+            // (int...numbers) может принять ссылку на масcив int[]
+            // СИКВЕНЦИЯ может принять массив !
+            add(array);
         }
-
-        this.array = new int[array.length];
-
-        for (int i = 0; i < array.length; i++) {
-            this.array[i] = array[i];
-            //add(array[i]);
-        }
-
-        cursor = array.length;
     }
 
     // Добавление в массив одного элемента
@@ -46,7 +37,7 @@ public class MagicArray {
         cursor++;
     }
 
-    // Расширение массива
+    // Динамическое расширение массива
     void expandArray() {
         System.out.println("Расширяем внутренний массив! Курсор равен = " + cursor);
         /*
@@ -73,9 +64,9 @@ public class MagicArray {
     // int... - это называется СИКВЕНЦИЯ (последовательность)
     void add(int... numbers) {
         // с numbers я могу обращаться точно также, как ссылкой на массив int
-        //System.out.println("Принял несколько int: " + numbers.length);
-        //System.out.println(Arrays.toString(numbers));
-        //System.out.println("У каждого инта есть индекс, как в масcиве: " + numbers[0]);
+        System.out.println("Принял несколько int: " + numbers.length);
+        System.out.println(Arrays.toString(numbers));
+        System.out.println("У каждого инта есть индекс, как в масcиве: " + numbers[0]);
 
         // Перебираю все значения. Для каждого вызываю метод add()
         for (int i = 0; i < numbers.length; i++) {
@@ -157,7 +148,7 @@ public class MagicArray {
         }
 
         // Сюда попадем, если ни одно значение в массиве не совпало
-        return -1;
+        return  -1;
     }
 
 
@@ -165,36 +156,53 @@ public class MagicArray {
     // {1, 100, 5, 100, 24, 0, 100} -> lastIndexOf(100) -> 6
     int lastIndexOf(int value) {
 
-        // Перебираем все значимые элементы.
-        // Находим первый элемент, запоминаем и идем дальше искать:
-        // если больше не нашли, то возвращаем первый
-        // если нашли, то перезаписываем индекс.
-        // Доходим до конца и возвращаем, что в индексе
+        // оптимизированный вариант
+        for (int i = cursor - 1; i >= 0; i--) {
+            if (array[i] == value) return i;
+        }
+        return -1;
 
+        /*
         int index = -1;
-
         for (int i = 0; i < cursor; i++) {
             if (array[i] == value) {
+                // Значения совпали, обновляю переменную index
                 index = i;
             }
         }
         return index;
+        */
+
     }
 
 
     // Удаление элемента по значению
-    boolean removeByValue(int value) {
+    // Не дубриловать код !!!!!!!!!!!!!!!!!!! использовать сущ-е методы!!!!!!
+    boolean removeByValue(int value){
+        // Todo Homework
+        /*
+        1. Есть ли элемент с таким значением - indexOf
+        2. Если элемента нет - ничего не пытаемся удалить - возвращает false
+        3. Если найден - удалить и затем вернуть true
+         */
 
         int index = indexOf(value); // получим индекс первого по очереди значения или -1
 
-        if (index != -1) {
-            remove(index);
-            return true;
-        }
+        if (index < 0) return false;
 
-        return false;
+        //в эту строчку кода попадем только, при index = 0 или больше
+        remove(index);
+        return true;
     }
 
+    // Массив, состоящий из элементов магического массива
+    public int[] toArray() {
+        int[] result = new int[cursor];
+        for (int i = 0; i < cursor; i++) {
+            result[i] = array[i];
+        }
+        return  result;
+    }
 
     void test() {
         System.out.println(Arrays.toString(array));
@@ -213,4 +221,5 @@ public class MagicArray {
 9. Поиск по значению. Возвращать индекс первого вхождения элемента ++
 10. Индекс последнего вхождения. Возвращать индекс последнего вхождения элемента
 11. Конструктор, принимающий обычный массив. Создать магический массив с элементами из этого массива
+12. Написать метод, который вернет массив, состоящий из элементов магического массива
  */

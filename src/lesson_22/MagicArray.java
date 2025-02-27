@@ -29,7 +29,7 @@ public class MagicArray {
         cursor++;
     }
 
-    // Расширение массива
+    // Динамическое расширение массива
     void expandArray() {
         System.out.println("Расширяем внутренний массив! Курсор равен = " + cursor);
         /*

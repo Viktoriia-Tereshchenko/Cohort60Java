@@ -177,9 +177,8 @@ public class MagicArrayEncaps {
 
 
     // Удаление элемента по значению
-    // Не дубриловать код !!!!!!!!!!!!!!!!!!! использовать сущ-е методы!!!!!!
     boolean removeByValue(int value){
-        // Todo Homework
+
         /*
         1. Есть ли элемент с таким значением - indexOf
         2. Если элемента нет - ничего не пытаемся удалить - возвращает false
@@ -187,7 +186,6 @@ public class MagicArrayEncaps {
          */
 
         int index = indexOf(value); // получим индекс первого по очереди значения или -1
-
         if (index < 0) return false;
 
         //в эту строчку кода попадем только, при index = 0 или больше

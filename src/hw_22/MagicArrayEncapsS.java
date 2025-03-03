@@ -1,20 +1,20 @@
-package homework_22;
+package hw_22;
 
 import java.util.Arrays;
 
 // Версия ДЗ 22 Сергея (учителя)
 
-public class MagicArrayEncaps_S {
+public class MagicArrayEncapsS {
     int[] array; // null
     int cursor; // по умолчанию = 0 (по типу данных)
 
     // Методы, расширяющие функционал массива
 
-    public MagicArrayEncaps_S() {
+    public MagicArrayEncapsS() {
         this.array = new int[10]; // [0, 0 ... 0]
     }
 
-    public MagicArrayEncaps_S(int[] array) {
+    public MagicArrayEncapsS(int[] array) {
 
         if (array == null || array.length == 0) {
             this.array = new int[10];

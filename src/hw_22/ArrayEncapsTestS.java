@@ -1,14 +1,14 @@
-package homework_22;
+package hw_22;
 
 import java.util.Arrays;
 
 // Версия ДЗ 22 Сергея (учителя)
 
-public class ArrayEncapsTest_S {
+public class ArrayEncapsTestS {
     public static void main(String[] args) {
 
         int[] test = {1, 2, 3, 4, 5};
-        MagicArrayEncaps_S magic = new MagicArrayEncaps_S(test);
+        MagicArrayEncapsS magic = new MagicArrayEncapsS(test);
         magic.test();
         magic.add(10);
         System.out.println(magic.toString());

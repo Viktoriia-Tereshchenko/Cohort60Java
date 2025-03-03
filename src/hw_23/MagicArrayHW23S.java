@@ -1,20 +1,20 @@
-package homework_23;
+package hw_23;
 
 import java.util.Arrays;
 
 // Версия ДЗ 23 Сергея (учителя)
 
-public class MagicArrayHW23_S {
+public class MagicArrayHW23S {
     private int[] array; // null
     private int cursor; // по умолчанию = 0 (по типу данных)
 
     // Методы, расширяющие функционал массива
 
-    public MagicArrayHW23_S() {
+    public MagicArrayHW23S() {
         this.array = new int[10]; // [0, 0 ... 0]
     }
 
-    public MagicArrayHW23_S(int[] array) {
+    public MagicArrayHW23S(int[] array) {
 
         if (array == null || array.length == 0) {
             this.array = new int[10];

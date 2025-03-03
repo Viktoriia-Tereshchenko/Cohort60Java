@@ -1,6 +1,8 @@
-package homework_23;
+package hw_23;
 
-public class EmployeeApp_S {
+import homework_23.Employee;
+
+public class EmployeeAppS {
     public static void main(String[] args) {
 
         Employee employee = new Employee("Max", 25, 5000.00);

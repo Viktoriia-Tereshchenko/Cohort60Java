@@ -1,11 +1,11 @@
-package homework_23;
+package hw_23;
 
 // Версия ДЗ 23 Сергея (учителя)
 
-public class Main23_S {
+public class Main23S {
     public static void main(String[] args) {
 
-        MagicArrayHW23_S magicArray = new MagicArrayHW23_S();
+        MagicArrayHW23S magicArray = new MagicArrayHW23S();
         magicArray.add(1, 2, 3, 4, 5);
         System.out.println(magicArray.toString());
 

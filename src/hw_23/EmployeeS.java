@@ -1,8 +1,8 @@
-package homework_23;
+package hw_23;
 
 // Версия ДЗ 23 Сергея (учителя)
 
-public class Employee_S {
+public class EmployeeS {
 
     private String name;
     private int age;
@@ -11,7 +11,7 @@ public class Employee_S {
     // в настоящих программах double для денег не подходит (есть погрешности)
     // в бухгалтерских программах применяются ссылочные типы данных !
 
-    public Employee_S(String name, int age, double salary) {
+    public EmployeeS(String name, int age, double salary) {
         this.name = name;
         this.age = age;
         this.salary = salary;

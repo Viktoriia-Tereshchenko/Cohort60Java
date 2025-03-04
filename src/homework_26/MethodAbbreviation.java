@@ -9,8 +9,6 @@ Task 3 * Опционально
 научно исследовательский институт -> НИИ
  */
 
-import java.util.Scanner;
-
 public class MethodAbbreviation {
 
     public static StringBuilder stringAbbreviation(String string) {

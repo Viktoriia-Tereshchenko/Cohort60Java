@@ -1,4 +1,4 @@
-package homework_26;
+package homework_26.shapes;
 
 /*
 Task 1

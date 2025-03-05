@@ -1,4 +1,4 @@
-package homework_26;
+package homework_26.fruits;
 
 public class Fruit {
 

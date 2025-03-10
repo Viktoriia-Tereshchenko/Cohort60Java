@@ -2,7 +2,7 @@ package homework_30.paySystems;
 
 public class BankAccount implements PaymentSystem{
 
-    private final long accountNumber; // или лучше long
+    private final long accountNumber; // или лучше int
     private double balance;
     private final String currency;
 

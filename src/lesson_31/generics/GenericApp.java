@@ -37,6 +37,5 @@ public class GenericApp {
         // За счет автоупокивки / распаковки не беспокоимся о необходимости приведения типов
         int val = intBox.getValue();
         Integer integerVal = intBox.getValue();
-
     }
 }

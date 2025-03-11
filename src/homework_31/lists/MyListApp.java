@@ -57,5 +57,7 @@ public class MyListApp {
         doubleList.set(0, -2.4);
         System.out.println(doubleList.toString());
 
+        doubleList.set(-9, 7.2);
+        doubleList.contains(null);
     }
 }

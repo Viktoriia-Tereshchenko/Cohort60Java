@@ -174,6 +174,11 @@ public class MyArrayList <T> implements MyList<T> {
     @Override
     public boolean contains(T value) {
 
+        if (value == null) {
+            System.out.println("Некорректное значение!");
+            return  false;
+        }
+
         if (indexOf(value) >= 0) return true;
 
         return false;
@@ -192,6 +197,17 @@ public class MyArrayList <T> implements MyList<T> {
     // Перезаписывает значение по указанному индексу
     @Override
     public void set(int index, T value) {
+
+        if (index < 0 || index >= cursor) {
+            System.out.println("Некорректный index!");
+            return;
+        }
+
+        if (value == null) {
+            System.out.println("Некорректное значение!");
+            return;
+        }
+
         array[index] = value;
     }
 

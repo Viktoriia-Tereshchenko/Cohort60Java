@@ -5,6 +5,18 @@ import lists.MyArrayList;
 public class Method {
 
     public static <T, U> void printTwoLists(MyArrayList<T> list1,  MyArrayList<U> list2) {
+        printList(list1);
+        printList(list2);
+    }
+
+    public static <T> void printList(MyArrayList<T> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+    /* первый вариант
+    public static <T, U> void printTwoLists(MyArrayList<T> list1,  MyArrayList<U> list2) {
 
         for (int i = 0; i < list1.size(); i++) {
             System.out.println(list1.get(i));
@@ -13,5 +25,6 @@ public class Method {
             System.out.println(list2.get(j));
         }
     }
+    */
 
 }

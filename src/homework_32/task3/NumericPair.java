@@ -11,7 +11,6 @@ public class NumericPair <T extends Number> {
     }
 
     public double sum() {
-
         if (value1 == null || value2 == null) return -1.7E+308; // обработка ошибки
 
         return value1.doubleValue() + value2.doubleValue();

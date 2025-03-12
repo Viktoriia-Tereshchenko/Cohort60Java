@@ -25,6 +25,14 @@ public class NumericPair <T extends Number> {
         return value2;
     }
 
+    public void setValue1(T value1) {
+        this.value1 = value1;
+    }
+
+    public void setValue2(T value2) {
+        this.value2 = value2;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("NumericPair{");

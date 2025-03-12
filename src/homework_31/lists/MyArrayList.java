@@ -1,5 +1,6 @@
 package homework_31.lists;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MyArrayList <T> implements MyList<T> {
@@ -91,9 +92,6 @@ public class MyArrayList <T> implements MyList<T> {
         if (index >= 0 && index < cursor) {
             return array[index];
         }
-
-        // Fixme Указать место в коде с ошибкой / проблемой
-        // Todo Поправить обработку некорректного индекса
         return null;
 
     }
@@ -115,7 +113,6 @@ public class MyArrayList <T> implements MyList<T> {
 
         } else {
             // Индекс не валидный
-            // Todo поправить возвращаемое значение
             return null;
         }
     }
@@ -158,7 +155,19 @@ public class MyArrayList <T> implements MyList<T> {
     // Массив, состоящий из элементов магического массива
     public T[] toArray() {
 
-        T[] result = (T[]) new Object[cursor];
+        // T[] result = (T[]) new Object[cursor];  - ОШИБКА !!!
+
+        // ---------------------РЕФЛЕКСИЯ------------------------
+        if (cursor == 0) return null; // нет 0-го элемента
+
+        Class<T> clazz = (Class<T>) array[0].getClass();  // определим класс 0-го элемента массива
+        System.out.println("clazz" + clazz);
+
+        // Создаю массив того же типа, что и 0-й элемент
+        T[] result = (T[]) Array.newInstance(clazz, cursor);
+
+        // -------------------------------------------------------
+
 
         for (int i = 0; i < cursor; i++) {
             result[i] = array[i];

@@ -39,4 +39,5 @@ public class NumericPair <T extends Number> {
         sb.append(", value2 = ").append(value2).append("}");
         return sb.toString();
     }
+
 }

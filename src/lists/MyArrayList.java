@@ -1,11 +1,8 @@
-
 package lists;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
-
-// Версия ДЗ 23 Сергея (учителя)
 
 public class MyArrayList<T> implements MyList<T> {
     private T[] array; // null
@@ -27,21 +24,13 @@ public class MyArrayList<T> implements MyList<T> {
             this.array = (T[]) new Object[10];
         } else {
             this.array = (T[]) new Object[array.length * 2];
-            // (int...numbers) может принять ссылку на масcив int[]
-            // СИКВЕНЦИЯ может принять массив !
             addAll(array);
         }
     }
 
-    // getArray() и setArray() НЕ нужны !
-    // getCursor() и setCursor() НЕ нужны !
-
-
     // Добавление в массив одного элемента
     public void add(T value) {
 
-        // Проверка! Есть ли свободное место во внутреннем массиве
-        // Если места нет - нужно добавить место
         if (cursor == array.length) {
             // Расширить внутренний массив перед добавлением нового значения
             expandArray();
@@ -54,23 +43,13 @@ public class MyArrayList<T> implements MyList<T> {
     @SuppressWarnings("unchecked")
     private void expandArray() {
         System.out.println("Расширяем внутренний массив! Курсор равен = " + cursor);
-        /*
-        1. Создать новый массив бОльшего размера (в 2 раза больше)
-        2. Переписать в новый массив все значения из старого (до курсора)
-        3. Перебросить ссылку
-         */
 
-        // Shift + Alt + стрелки вверх / вниз для перемещения строк кода
-
-        // 1
         T[] newArray = (T[]) new Object[array.length * 2];
 
-        // 2
         for (int i = 0; i < cursor; i++) {
             newArray[i] = array[i];
         }
-
-        // 3 Перебрасываем ссылку. Переменная array хранит ссылку на "новый" массив
+        //Перебрасываем ссылку. Переменная array хранит ссылку на "новый" массив
         array = newArray;
     }
 
@@ -85,7 +64,6 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     // Возвращает строковое представление массива
-    // [5, 20, 45]
     @Override
     public String toString() {
 
@@ -114,12 +92,6 @@ public class MyArrayList<T> implements MyList<T> {
 
     // Удалить элемент по индексу
     public T remove(int index) {
-        /*
-        1. Проверка индекса на валидность
-        2. Удалить значение по индексу
-        3. Передвинуть курсор (т.к. кол-во элементов уменьшилось)
-        4. Вернуть старое значение
-        */
 
         if (index >= 0 && index < cursor) {
             // Логика удаления
@@ -157,33 +129,24 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-
     // Поиск по значению
-    // {1, 100, 5, 24, 0, 5} -> indexOf(5) = 2; indexOf(50) = -1;
     public int indexOf(T value) {
-        // Перебираю все значимые элементы
-        // Если элемент равен искомому - вернуть индекс такого элемента
-        // Если перебрал все элементы = не нашел совпадений - вернуть -1
 
         for (int i = 0; i < cursor; i++) {
-
-            // null - безопасное сравнение
+            // null - безопасное сравнение (Objects.equals()) !
             if (Objects.equals(array[i], value)) {
                 //if (array[i] !=null && array[i].equals(value)) {
                 // Значения совпали. Возвращаю индекс
                 return i;
             }
         }
-
         // Сюда попадем, если ни одно значение в массиве не совпало
         return -1;
     }
 
 
     // Индекс последнего вхождения.
-    // {1, 100, 5, 100, 24, 0, 100} -> lastIndexOf(100) -> 6
     public int lastIndexOf(T value) {
-
         // оптимизированный вариант
         for (int i = cursor - 1; i >= 0; i--) {
 
@@ -191,29 +154,11 @@ public class MyArrayList<T> implements MyList<T> {
             //if (array[i].equals(value)) return i;
         }
         return -1;
-
-        /*
-        int index = -1;
-        for (int i = 0; i < cursor; i++) {
-            if (array[i] == value) {
-                // Значения совпали, обновляю переменную index
-                index = i;
-            }
-        }
-        return index;
-        */
     }
-
 
     // Удаление элемента по значению
     @Override
     public boolean remove(T value) {
-
-        /*
-        1. Есть ли элемент с таким значением - indexOf
-        2. Если элемента нет - ничего не пытаемся удалить - возвращает false
-        3. Если найден - удалить и затем вернуть true
-         */
 
         int index = indexOf(value); // получим индекс первого по очереди значения или -1
         if (index < 0) return false;
@@ -227,28 +172,21 @@ public class MyArrayList<T> implements MyList<T> {
     @SuppressWarnings("unchecked")
     public T[] toArray() {
 
-        /*
-        1. Создать массив размерность cursor (кол-во значимых элементов)
-        2. Пройтись по внутреннему массиву и скопировать все элементы в новый дл курсора
-        3. Вернуть ссылку на новый массив
-         */
 
-        // TODO здесь будет ошибка
-//        T[] result = (T[]) new Object[cursor];
+//        T[] result = (T[]) new Object[cursor]; // ошибка при вызове!
 //        T[] res = new T[11]; // нельзя создать объект
 //        T obj = new T();
 
-        // Взять какой-то объект из моего массива
-        // и узнать с помощью рефлексии тип этого объекта
-        // Потом создать массив этого типа
 
-        if (cursor == 0) return null;
+        // ---------------------РЕФЛЕКСИЯ------------------------
+        if (cursor == 0) return null; // нет 0-го элемента
 
-        Class<T> clazz = (Class<T>) array[0].getClass();
+        Class<T> clazz = (Class<T>) array[0].getClass(); // определим класс 0-го элемента массива с помощью рефлексии
         System.out.println("clazz" + clazz);
 
         // Создаю массив того же типа, что и 0-й элемент
         T[] result = (T[]) Array.newInstance(clazz, cursor);
+        // -------------------------------------------------------
 
         for (int i = 0; i < cursor; i++) {
             result[i] = array[i];
@@ -259,4 +197,5 @@ public class MyArrayList<T> implements MyList<T> {
     public void test() {
         System.out.println(Arrays.toString(array));
     }
+
 }

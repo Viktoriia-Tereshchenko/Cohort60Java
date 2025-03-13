@@ -25,7 +25,7 @@ public class Person {
     }
 
     public void setPassword(String password) {
-        if (isPassswordValid(password)) {
+        if (isPasswordValid(password)) {
             this.password = password;
         }
     }
@@ -96,7 +96,7 @@ public class Person {
     5. Должен быть мин 1 специальный символ: "!%$@&*()[],.-";
      */
 
-    public boolean isPassswordValid(String password) {
+    public boolean isPasswordValid(String password) {
 
         boolean condition1 = false;
         boolean condition2 = false;
@@ -116,12 +116,11 @@ public class Person {
             if (Character.isDigit(ch)) condition2 = true; // символ - цифра
             if (Character.isLowerCase(ch)) condition3 = true; // символ - маленькая буква
             if (Character.isUpperCase(ch)) condition4 = true; // символ - большая буква
-            if (specialSymbols.indexOf(ch) >=0) condition5 = true; // символ - специальный символ
+            if (specialSymbols.indexOf(ch) >= 0) condition5 = true; // символ - специальный символ
         }
 
         return condition1 && condition2 && condition3 && condition4 && condition5;
     }
-
 
     @Override
     public String toString() {

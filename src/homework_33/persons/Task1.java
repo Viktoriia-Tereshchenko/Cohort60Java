@@ -18,7 +18,7 @@ public class Task1 {
         System.out.println(person);
 
         System.out.println("\n==============");
-        person.setPassword("23$rrtggdD");
+        person.setPassword("78$rrtggdtR");
         System.out.println(person);
     }
 }

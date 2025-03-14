@@ -7,7 +7,7 @@ public class Person {
 
     public Person(String email, String password) {
         setEmail(email);
-        this.password = password;
+        setPassword(password);
     }
 
     public String getEmail() {

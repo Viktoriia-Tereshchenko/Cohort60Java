@@ -39,6 +39,8 @@ public class RectangleTest {
         rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
         rectangles.add(new Rectangle(6.0, 4.0));
         rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
+        rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
+        rectangles.add(new Rectangle(5.0, 3.0)); // Дубликат
 
         System.out.println("Список до удаления дубликатов:");
         for (Rectangle rect : rectangles) {

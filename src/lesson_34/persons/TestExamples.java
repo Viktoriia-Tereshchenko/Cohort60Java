@@ -1,6 +1,6 @@
 package lesson_34.persons;
 
-import hw_25.Calculator25S;
+import hw.hw_25.Calculator25S;
 import lesson_27.Autobus;
 import lesson_27.BusDriver;
 import org.junit.jupiter.api.*;

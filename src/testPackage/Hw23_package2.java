@@ -1,6 +1,6 @@
 package testPackage;
 
-import hw_23.MagicArrayHW23S;
+import hw.hw_23.MagicArrayHW23S;
 
 public class Hw23_package2 {
     public static void main(String[] args) {

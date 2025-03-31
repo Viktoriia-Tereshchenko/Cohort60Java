@@ -20,7 +20,7 @@ public class MapExample {
         Map<String, String> phoneBook = new HashMap<>();
 
         // Добавить пару ключ-значение
-        // V pur (K key, V value) -> возвращает старое значение, соответствующее этому ключу,
+        // V put (K key, V value) -> возвращает старое значение, соответствующее этому ключу,
         // если такого ключа еще не было - вернет null
 
         System.out.println(phoneBook.put("Hanna", "+49-1111"));

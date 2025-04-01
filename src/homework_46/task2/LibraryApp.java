@@ -1,4 +1,5 @@
 package homework_46.task2;
+import java.util.Optional;
 /*
 Task 2
 Поиск книги в библиотеке.
@@ -20,31 +21,19 @@ Optional<Book> findBookByTitle(String title)
 Вывести информацию о книге, если она найдена.
 Вывести "Книга не найдена", если её нет.
  */
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
-public class Library {
+public class LibraryApp {
 
-    private static List<Book> books = new ArrayList<>();
+    public static void main(String[] args) {
 
-    static {
-        books.add(new Book("Три мушкетёра", "А. Дюма"));
-        books.add(new Book("Граф Монте-Кристо", "А. Дюма"));
-        books.add(new Book("Робинзон Крузо", "А. Дефо"));
-    }
+        String title = "Три";
+        //String title = "Повести";
+        Optional<Book> resultBook = Library.findBookByTitle(title);
 
-    public static Optional<Book> findBookByTitle(String title) {
-
-        if (title == null || title.isEmpty()) {
-            return Optional.empty();
+        if (resultBook.isPresent()) {
+            System.out.println(resultBook.get());
+        } else {
+            System.out.println("Книга не найдена");
         }
-
-        for (Book book : books){
-            if (book.getTitle().contains(title)) {
-                return Optional.of(book);
-            }
-        }
-        return Optional.empty();
     }
 }

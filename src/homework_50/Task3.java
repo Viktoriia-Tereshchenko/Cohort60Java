@@ -1,5 +1,13 @@
 package homework_50;
 
+/*
+
+Task 3
+Написать метод, принимающий список из нескольких дат типа LocalDate
+и возвращающий количество дней между самой ранней и поздней датами в этом списке
+
+ */
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
